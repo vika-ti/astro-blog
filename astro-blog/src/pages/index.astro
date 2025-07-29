@@ -1,8 +1,30 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/global.css';
+import PostCard from '../components/PostCard.astro';
+
+const posts = [
+  {
+    title: "Portugal Travel Notes",
+    date: "2025-07-28",
+    summary: "Why Porto is better than Lisbon and the magic of Portuguese tarts.",
+    href: "/blog/portugal"
+  },
+  {
+    title: "Spain Travel Notes",
+    date: "2025-07-29",
+    summary: "Bakery mornings and beach vibes in beautiful Barcelona.",
+    href: "/blog/spain"
+  }
+];
 ---
 
-<BaseLayout title="Victoria's Astro Blog">
-  <p>Welcome to my first site built with Astro!</p>
-  <p>Click on the Blog link to read posts.</p>
-</BaseLayout>
+<h1>Travel Blog</h1>
+
+{posts.map(post => (
+  <PostCard 
+    title={post.title}
+    date={post.date}
+    summary={post.summary}
+    href={post.href}
+  />
+))}
